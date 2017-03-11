@@ -1,19 +1,5 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'android-apt'
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-    }
-}
-dependencies {
-    compile 'com.dspot:declex-api:1.2.1.1'
-    apt 'com.dspot:declex:1.2.1.1'
-}
-
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
@@ -31,6 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+dependencies {
+    annotationProcessor 'com.dspot:declex:1.2.1'
+    compile 'com.dspot:declex-api:1.2.1'
 }
 
 dependencies {
